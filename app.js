@@ -1,7 +1,7 @@
 let choices = [{
   name: 'Rock',
   color: 'Grey',
-  imgUrl: 'https://s3-alpha-sig.figma.com/img/79b8/6507/1c9b08307c0e1107b094326311a1b898?Expires=1635120000&Signature=YPIQj2MfOxCnlFxWUjqfXklqAbIY4f5rB5jeolcEQfDpfQ7vcsC6S0DmKGK5cwq2ujoz2VjKtugK~jNLImmYE9W6KKtmbGQunktkEkK0c6Mt89ut8a33cSwwf1Ubc2~bxWIqQGr4H4FACk3UvtRXCXKUDFJwfg7u18ThhwLLUIWMXZh39WQr0iE2A2G6d4y1JA9Ews2AJJSM4LlIRnurfUP25FLYEPJxTz7ElgFjrsxXX3wif7kFCUJVM~gMgd9LWVB6ny~og2ltSKdRSHhc4OaI4hIZ7diJHrJSGgXWiEMvqmlA462aGL6IbdbsX206HGsTkkH7JJvo4JwBb97SNg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
+  imgUrl: 'https://s3-alpha-sig.figma.com/img/0ab8/d3ef/6c643a0cdb1d50bb7fd7ab4631ce0b7f?Expires=1635120000&Signature=ImnZHxUpzOlQ8CNscvzT2gSy6Ml1NM-3IHTjff0uK0KCIWFkX2Ev~wEXllaTN14jiSKyEYT51k1ABgtuKZpP8kNGuknb4R-MYKS~ODYAtOXqTzpF8ZDuccVfQlSEuCy-rX0dmjDEuKpLNs59buQi49dRg4J4Ra1cYiTDyhl8EmZQlxWvH9PtAbh8~AwaZFcBUDq14hWuUPXzDcDPzymCJ2EO659ftoJQQYmpy0s0K6RAZ8GLb-594VublM6-Jx2d9BE8ayrFkCEoML9aNSRAdMF8J9Uz-zz4x0w26kBNbDssRmr-9m6BqMHgaNg9SOTkowb9ZpvfsJ~iknQNGNKKTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
 }, {
   name: 'Paper',
   color: 'White',
@@ -20,13 +20,17 @@ let winCond = {
 var playerScore = 0
 var computerScore = 0
 
+function noclick() {
+  window.event.preventDefault()
+}
+
 function play(choice1) {
 
   let playerChoice = choices.find(pChoice => pChoice.name === choice1)
 
   document.getElementById('playerMessage').innerText = `You have chosen ${playerChoice.name}
   `
-  document.querySelector('#imgP').innerHTML = `<img oncontextmenu="noclick() "class="img-fluid rounded" src="${playerChoice.imgUrl}" alt="choice img">
+  document.querySelector('#imgP').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded" src="${playerChoice.imgUrl}" alt="choice img">
   `
   let compScore = computerChoice()
 
@@ -55,14 +59,11 @@ function computerChoice() {
   let imgRand = compChoiceRand.imgUrl
   document.getElementById('computerMessage').innerText = `The computer has chosen ${nameRand}
   `
-  document.querySelector('#imgC').innerHTML = `<img oncontextmenu="noclick() "class="img-fluid rounded" src="${imgRand}" alt="choice img">
+  document.querySelector('#imgC').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded" src="${imgRand}" alt="choice img">
   `
   return nameRand
 }
 
-function noclick() {
-  window.event.preventDefault()
-}
 
 
 
