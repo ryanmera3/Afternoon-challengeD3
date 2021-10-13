@@ -28,9 +28,9 @@ function play(choice1) {
 
   let playerChoice = choices.find(pChoice => pChoice.name === choice1)
 
-  document.getElementById('playerMessage').innerText = `You have chosen ${playerChoice.name}
+  document.getElementById('playerMessage').innerText = `You chose ${playerChoice.name}
   `
-  document.querySelector('#imgP').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded" src="${playerChoice.imgUrl}" alt="choice img">
+  document.querySelector('#imgP').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded img" src="${playerChoice.imgUrl}" alt="choice img">
   `
   let compScore = computerChoice()
 
@@ -57,9 +57,9 @@ function computerChoice() {
   let compChoiceRand = choices[randIndex]
   let nameRand = compChoiceRand.name
   let imgRand = compChoiceRand.imgUrl
-  document.getElementById('computerMessage').innerText = `The computer has chosen ${nameRand}
+  document.getElementById('computerMessage').innerText = `The computer chose ${nameRand}
   `
-  document.querySelector('#imgC').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded" src="${imgRand}" alt="choice img">
+  document.querySelector('#imgC').innerHTML = `<img oncontextmenu="noclick()" class="img-fluid rounded img" src="${imgRand}" alt="choice img">
   `
   return nameRand
 }
